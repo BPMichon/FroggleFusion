@@ -5,7 +5,12 @@ var frog_count = 0
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	#while(not in boundary)
+		#randomly select a direction
+		#add a set move amount to that direction
+		#check if its in the boundary
+	#move the sprite
+	#call ready again :D 
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
