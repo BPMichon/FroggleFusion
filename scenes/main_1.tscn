@@ -5,6 +5,7 @@
 
 [node name="Main1" type="Node2D"]
 script = ExtResource("1_6gdq0")
+metadata/frog_count = true
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -100
@@ -23,6 +24,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Button" type="Button" parent="UI"]
+layout_mode = 0
 offset_left = 56.0
 offset_top = 871.0
 offset_right = 417.0
@@ -31,6 +33,7 @@ theme_override_font_sizes/font_size = 100
 text = "Frog +1"
 
 [node name="FrogLabel" type="Label" parent="UI"]
+layout_mode = 0
 offset_left = 30.0
 offset_top = -5.0
 offset_right = 611.0
@@ -41,6 +44,7 @@ text = "Frog Count :
 
 [node name="FrogCount" type="Label" parent="UI"]
 unique_name_in_owner = true
+layout_mode = 0
 offset_left = 634.0
 offset_top = -7.0
 offset_right = 691.0
