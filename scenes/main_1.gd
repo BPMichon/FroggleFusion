@@ -14,8 +14,8 @@ func _process(delta):
 
 func spawn_frog():
 	var instance = frogScene.instantiate()
-	var randPosX = rng.randi_range(0, get_viewport_rect().end.x)
-	var randPosY = rng.randi_range(0, get_viewport_rect().end.y)
+	var randPosX = rng.randi_range(0, get_viewport_rect().end.x - 100)
+	var randPosY = rng.randi_range(0, get_viewport_rect().end.y - 100) 
 	print(randPosX, randPosY)
 	instance.global_position = Vector2(randPosX, randPosY)
 	add_child(instance)
