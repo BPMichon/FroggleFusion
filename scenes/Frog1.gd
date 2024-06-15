@@ -3,7 +3,7 @@ extends Sprite2D
 @export var Health : int = 10
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	get_parent().frog_count += 1
 	
 	
 	pass # Replace with function body.
