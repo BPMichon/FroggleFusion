@@ -65,7 +65,7 @@ _data = {
 }
 
 [node name="Frog1" type="Sprite2D" groups=["Frog"]]
-position = Vector2(457, 165)
+position = Vector2(851, 614)
 scale = Vector2(4.8503, 5.17935)
 script = ExtResource("2_kv5us")
 

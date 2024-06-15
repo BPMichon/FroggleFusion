@@ -18,20 +18,20 @@ func frogRandomMove():
 	randomize()
 	await get_tree().create_timer(randf_range(0.5,2)).timeout
 
-	var x_position = randi_range(-10, 4)
-	var y_position = randi_range(-7, 4)
+	var x_position = randi_range(0, get_viewport_rect().end.x)
+	var y_position = randi_range(0, get_viewport_rect().end.y)
 	#position = Vector2(x_position, y_position) # greyed out because I don't want a jump to the new position
 
 
-	var tween
-	
-	tween.interpolate_property(self, "position",
-	position, Vector2(x_position, y_position), 1,
-	Tween.TRANS_EXPO, Tween.EASE_OUT)
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", Vector2(x_position, y_position), 1)
+	#tween.interpolate_property(self, "position",
+	#position, Vector2(x_position, y_position), 1,
+	#Tween.TRANS_EXPO, Tween.EASE_OUT)
 
-	tween.start()
+	#tween.start()
 	await tween.finished
-	queue_free()
+	#tween.tween_callback(queue_free())
 	#while(not in boundary)
 		#randomly select a direction
 		#add a set move amount to that direction
