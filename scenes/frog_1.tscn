@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch8584hrxf0xg"]
+[gd_scene load_steps=22 format=3 uid="uid://ch8584hrxf0xg"]
 
+[ext_resource type="Texture2D" uid="uid://5i718m3s06vs" path="res://art/new_frog.png" id="2_etrrv"]
 [ext_resource type="Script" path="res://scenes/Frog1.gd" id="2_kv5us"]
-[ext_resource type="Texture2D" uid="uid://dy4jjldoh4nyp" path="res://Frog_2.png" id="3_hlri8"]
 
 [sub_resource type="Animation" id="Animation_3rgry"]
 length = 0.001
@@ -64,18 +64,142 @@ _data = {
 "hop": SubResource("Animation_41mrc")
 }
 
-[node name="Frog1" type="Sprite2D" groups=["Frog"]]
+[sub_resource type="AtlasTexture" id="AtlasTexture_odpd1"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7656y"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35j1h"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3iqbm"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2m6u"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_677r3"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_var5b"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50lcb"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l65ha"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbuy5"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnu52"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7l27"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(144, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6tf2"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(192, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuf34"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(240, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khsax"]
+atlas = ExtResource("2_etrrv")
+region = Rect2(288, 48, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lknhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odpd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7656y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35j1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3iqbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2m6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_677r3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_var5b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50lcb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l65ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbuy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnu52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7l27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6tf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuf34")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khsax")
+}],
+"loop": true,
+"name": &"hop",
+"speed": 7.0
+}]
+
+[node name="FrogObject" type="Sprite2D" groups=["Frog"]]
 position = Vector2(851, 614)
 scale = Vector2(4.8503, 5.17935)
 script = ExtResource("2_kv5us")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Frog2")
+active = false
+root_node = NodePath("../AnimatedSprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_5vb7t")
 }
-autoplay = "hop"
 
-[node name="Frog2" type="Sprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(25.3592, -0.386149)
-texture = ExtResource("3_hlri8")
+sprite_frames = SubResource("SpriteFrames_lknhk")
+animation = &"hop"
+autoplay = "Idle"
+frame_progress = 0.263807
+
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
