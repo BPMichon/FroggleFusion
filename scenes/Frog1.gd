@@ -46,10 +46,8 @@ func calculateNextRandCoord():
 	
 func frogRandomMove():
 	
-	var xDistance = abs(NEW_POSITION.x - position.x)
-	
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", NEW_POSITION, (1/99)*xDistance + 0.4899)
+	tween.tween_property(self, "position", NEW_POSITION, (0.6))
 
 	await tween.finished
 	%AnimatedSprite2D.play("Idle")
@@ -57,7 +55,7 @@ func frogRandomMove():
 	calculateNextRandCoord()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
