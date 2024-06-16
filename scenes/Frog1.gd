@@ -5,6 +5,9 @@ extends Sprite2D
 #Global variables
 var NEW_POSITION
 
+
+var MouseIn = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_meta("frog_count"):
@@ -55,11 +58,25 @@ func frogRandomMove():
 	calculateNextRandCoord()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+
+func _process(delta):
+	if MouseIn and Input.is_action_just_pressed("Click"):
+		var tween1 = get_tree().create_tween()
+		tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
+
 
 
 func _on_animated_sprite_2d_frame_changed():
 	#only want to start moving when hopping animation is on frame 3
 	if %AnimatedSprite2D.get_frame() == 3 and %AnimatedSprite2D.animation == "hop":
 		frogRandomMove()
+
+
+func _on_area_2d_mouse_entered():
+	MouseIn = true
+	pass # Replace with function body.
+
+
+func _on_area_2d_mouse_exited():
+	MouseIn = false
+	pass # Replace with function body.
