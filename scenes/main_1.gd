@@ -18,7 +18,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	%FrogCount.text = str(frog_count)
-
+	%ScienceCount.text = str(FrogGlobals.SCIENCE_COUNT)
+	
 func spawn_frog():
 	var instance = frogScene.instantiate()
 	var randPosX = rng.randi_range(0, get_viewport_rect().end.x - 100)
@@ -29,3 +30,12 @@ func spawn_frog():
 func _on_button_pressed():
 	spawn_frog() 
 	
+#called when a frog tadpole hits the science counter
+func onScienceHit():
+	#makes it small then big
+	var tween = get_tree().create_tween()
+	tween.tween_property(%ScienceCount,"theme_override_font_sizes/font_size", 90, 0.1)
+	await tween.finished
+	tween = get_tree().create_tween()
+	tween.tween_property(%ScienceCount,"theme_override_font_sizes/font_size", 100, 0.1)
+	await tween.finished

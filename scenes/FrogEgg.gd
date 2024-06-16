@@ -9,6 +9,10 @@ func Suicide():
 	
 	await tween.finished
 	queue_free()
+	FrogGlobals.SCIENCE_COUNT += 1
+	var Destination = get_tree().get_nodes_in_group("MainNode")
+	Destination[0].onScienceHit()
+	
 
 func CalculatePosition(Initial, Final):
 	var DifferenceX = Final.x - Initial.x 
