@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://b11s3kou7gfb"]
+
+[ext_resource type="Script" path="res://scenes/farm_stats_menu.gd" id="1_042wm"]
+
+[node name="FarmStatsMenu" type="ColorRect"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -292.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_042wm")
+
+[node name="CloseFarmStats" type="Button" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 8.0
+offset_right = 285.0
+offset_bottom = 39.0
+text = "Close"
+
+[connection signal="pressed" from="CloseFarmStats" to="." method="_on_close_farm_stats_pressed"]

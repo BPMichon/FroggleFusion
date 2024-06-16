@@ -5,10 +5,10 @@ var frog_count = 0
 @export var frogScene: PackedScene = preload("res://scenes/frog_1.tscn")
 var rng = RandomNumberGenerator.new()
 
-
+#var farmStatsScene: PackedScene = preload("res://scenes/farm_stats_menu.tscn")
 #Global Variables
 var FROG_SCIENCE
-
+#var farmStatsMenuInstance = farmStatsScene.instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,3 +39,11 @@ func onScienceHit():
 	tween = get_tree().create_tween()
 	tween.tween_property(%ScienceCount,"theme_override_font_sizes/font_size", 100, 0.1)
 	await tween.finished
+
+
+func _on_farm_stats_button_pressed():
+	#farmStatsMenuInstance.visible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(%FarmStatsMenu,"global_position", Vector2(1630, 0), 0.6).set_trans(Tween.TRANS_EXPO)
+	await tween.finished
+	#%FarmStatsMenu.visible = true

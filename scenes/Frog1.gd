@@ -70,7 +70,7 @@ func frogRandomMove():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
-func _process(delta):
+func _process(_delta):
 	if MouseIn and Input.is_action_just_pressed("Click"):
 		if SCIENCE_READY:
 			var tween1 = get_tree().create_tween()
