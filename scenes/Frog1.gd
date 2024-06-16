@@ -6,23 +6,22 @@ extends Sprite2D
 var direction = 1
 var speed = 100
 var hopFrame4 = false
+var newPosition
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_meta("frog_count"):
 		get_parent().frog_count += 1
 	
 	
-	frogRandomMove()
+	frogRandom()
+	#%AnimatedSprite2D.play("hop")
 	pass # Replace with function body.
 	
-
-func frogRandomMove():
-	
+func frogRandom():
 	randomize()
 	await get_tree().create_timer(randf_range(2,4)).timeout
 	
 	var isFrogOnScreen = false
-	var newPosition
 	var xOffset
 	var yOffset
 	var largestX = get_viewport_rect().end.x - 100
@@ -43,20 +42,8 @@ func frogRandomMove():
 	#var y_position = randi_range(0, get_viewport_rect().end.y)
 	#position = Vector2(x_position, y_position) # greyed out because I don't want a jump to the new position
 
-
-	
-	
-	%AnimatedSprite2D.play("hop")
-	while hopFrame4 != true:
-		print("NotHopping")
-	print("Hopping")
-	hopFrame4 = false
-	var tween = get_tree().create_tween()
-	tween.tween_property(self, "position", newPosition, 1)
-	#Points Right 
-	#if flipped == false:
-		#if newPosition.x < position.x :
-			#flip frog (Point Left)
+	#%AnimatedSprite2D.play("hop")
+	#hopFrame4 = false	
 	if %AnimatedSprite2D.flip_h == true:
 		if newPosition.x > position.x:
 			%AnimatedSprite2D.flip_h = false
@@ -64,6 +51,18 @@ func frogRandomMove():
 		if newPosition.x < position.x:
 			%AnimatedSprite2D.flip_h = true
 	
+	%AnimatedSprite2D.play("hop")
+	
+func frogRandomMove():
+	
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "position", newPosition, 0.6)
+	#Points Right 
+	#if flipped == false:
+		#if newPosition.x < position.x :
+			#flip frog (Point Left)
+
 	await tween.finished
 	%AnimatedSprite2D.play("Idle")
 	#while(not in boundary)
@@ -72,7 +71,7 @@ func frogRandomMove():
 		#check if its in the boundary
 	#move the sprite
 	
-	frogRandomMove()
+	frogRandom()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -85,6 +84,7 @@ func _process(delta):
 
 
 func _on_animated_sprite_2d_frame_changed():
-	print()
-	if %AnimatedSprite2D.get_frame() == 4:
-		hopFrame4 = true
+	#print()
+	if %AnimatedSprite2D.get_frame() == 3 and %AnimatedSprite2D.animation == "hop":
+		frogRandomMove()
+		#hopFrame4 = true

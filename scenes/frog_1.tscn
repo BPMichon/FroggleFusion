@@ -200,6 +200,6 @@ position = Vector2(25.3592, -0.386149)
 sprite_frames = SubResource("SpriteFrames_lknhk")
 animation = &"hop"
 autoplay = "Idle"
-frame_progress = 0.263807
+frame_progress = 0.524188
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
