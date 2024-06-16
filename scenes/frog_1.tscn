@@ -208,9 +208,14 @@ frame_progress = 0.18947
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(22.8852, -0.965372)
 shape = SubResource("CircleShape2D_8w3ug")
+
+[node name="ScienceTimer" type="Timer" parent="."]
+unique_name_in_owner = true
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="ScienceTimer" to="." method="_on_science_timer_timeout"]

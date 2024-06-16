@@ -1,8 +1,15 @@
 extends Node2D
 
 var frog_count = 0
+
 @export var frogScene: PackedScene = preload("res://scenes/frog_1.tscn")
 var rng = RandomNumberGenerator.new()
+
+
+#Global Variables
+var FROG_SCIENCE
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	

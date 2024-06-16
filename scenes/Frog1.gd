@@ -1,20 +1,31 @@
 extends Sprite2D
 @export_category("STATS")
 @export var Health : int = 10#
+#Scenes Preloads 
+@export var frogScienceScene: PackedScene = preload("res://scenes/frog_egg.tscn")
 
 #Global variables
 var NEW_POSITION
-
-
+var SCIENCE_COOLDOWN = 0.01
+var SCIENCE_READY : bool = false
 var MouseIn = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if get_parent().has_meta("frog_count"):
 		get_parent().frog_count += 1
-	
-	
+		
 	calculateNextRandCoord()
+	startScienceTimer()
+
+func spawn_science():
+	var instance = frogScienceScene.instantiate() 
+	instance.position = %AnimatedSprite2D.position
+	add_child(instance)
+	
+func startScienceTimer():
+	%ScienceTimer.wait_time = 60*(SCIENCE_COOLDOWN)
+	%ScienceTimer.start()
 	
 func calculateNextRandCoord():
 	var isFrogOnScreen = false
@@ -61,9 +72,12 @@ func frogRandomMove():
 
 func _process(delta):
 	if MouseIn and Input.is_action_just_pressed("Click"):
-		var tween1 = get_tree().create_tween()
-		tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
-
+		if SCIENCE_READY:
+			var tween1 = get_tree().create_tween()
+			tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
+			
+			## Shit Tadpole 
+			spawn_science()
 
 
 func _on_animated_sprite_2d_frame_changed():
@@ -80,3 +94,7 @@ func _on_area_2d_mouse_entered():
 func _on_area_2d_mouse_exited():
 	MouseIn = false
 	pass # Replace with function body.
+
+#Make Frog Ready to Shit
+func _on_science_timer_timeout():
+	SCIENCE_READY = true

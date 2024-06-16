@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5l3605gq2fh3"]
+
+[ext_resource type="Texture2D" uid="uid://oajn7ikli4pq" path="res://art/FrogEgg.png" id="1_g66qc"]
+[ext_resource type="Script" path="res://scenes/FrogEgg.gd" id="2_04yd2"]
+
+[node name="FrogEgg" type="Sprite2D"]
+position = Vector2(6.18519, 13.3221)
+texture = ExtResource("1_g66qc")
+script = ExtResource("2_04yd2")
