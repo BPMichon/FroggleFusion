@@ -12,9 +12,11 @@ var MouseIn = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_parent().has_meta("frog_count"):
-		get_parent().frog_count += 1
-		
+	#if get_parent().has_meta("frog_count"):
+		#get_parent().frog_count += 1
+	FrogGlobals.FROG_DATA["BlueGreenFrog"]["amount"] += 1
+	var Destination = get_tree().get_nodes_in_group("BlueGreenFrog")
+	Destination[0].UpdateFrog("BlueGreenFrog")
 	calculateNextRandCoord()
 	startScienceTimer()
 

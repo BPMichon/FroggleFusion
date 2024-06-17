@@ -166,27 +166,6 @@ offset_bottom = 1031.0
 theme_override_font_sizes/font_size = 100
 text = "Frog +1"
 
-[node name="FrogLabel" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = 468.0
-offset_top = 953.0
-offset_right = 1049.0
-offset_bottom = 1130.0
-theme_override_font_sizes/font_size = 100
-text = "Frog Count :
-"
-
-[node name="FrogCount" type="Label" parent="UI"]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 1076.0
-offset_top = 953.0
-offset_right = 1133.0
-offset_bottom = 1090.0
-theme_override_font_sizes/font_size = 100
-text = "1
-"
-
 [node name="ScienceCount" type="Label" parent="UI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -233,6 +212,7 @@ layer_0/tile_data = PackedInt32Array(2162712, 196610, 1, 1703950, 196610, 1, 176
 position = Vector2(1000, 48)
 
 [node name="ScienceIcon" type="AnimatedSprite2D" parent="."]
+z_index = 100
 position = Vector2(902, 61)
 scale = Vector2(6, 5.6875)
 sprite_frames = SubResource("SpriteFrames_p5agi")

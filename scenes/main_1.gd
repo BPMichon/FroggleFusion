@@ -17,7 +17,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	%FrogCount.text = str(frog_count)
 	%ScienceCount.text = str(FrogGlobals.SCIENCE_COUNT)
 	
 func spawn_frog():

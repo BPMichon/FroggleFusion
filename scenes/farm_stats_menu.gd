@@ -17,3 +17,4 @@ func _on_close_farm_stats_pressed():
 	await tween.finished
 	#self.visible = false
 	pass # Replace with function body.
+	
