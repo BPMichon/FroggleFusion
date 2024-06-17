@@ -8,8 +8,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
+#this is called from a frog when it spawns in, where it passes it's name
 func UpdateFrog(frogName):
 	%FrogAmount.text = str(FrogGlobals.FROG_DATA[frogName]["amount"])

@@ -9,7 +9,7 @@ func _ready():
 	for frog in FrogGlobals.FROG_DATA:
 		instance = frogRowScene.instantiate()
 		print(FrogGlobals.FROG_DATA[frog]["imagePath"])
-		#group called the frog's name, which is sent a signal every time that frog spwans in
+		#the group is called the frog's name, which is sent a signal every time that frog spwans in
 		instance.add_to_group(frog)
 		%VBoxContainer.add_child(instance)
 		#if locked
@@ -22,5 +22,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
