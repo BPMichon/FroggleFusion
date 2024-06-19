@@ -9,14 +9,16 @@ var NEW_POSITION
 var SCIENCE_COOLDOWN = 0.01
 var SCIENCE_READY : bool = false
 var MouseIn = false
+@export var frogType: FrogGlobals.FROG_TYPES
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#if get_parent().has_meta("frog_count"):
 		#get_parent().frog_count += 1
-	FrogGlobals.FROG_DATA["BlueGreenFrog"]["amount"] += 1
-	var Destination = get_tree().get_nodes_in_group("BlueGreenFrog")
-	Destination[0].UpdateFrog("BlueGreenFrog")
+	
+	FrogGlobals.FROG_DATA[frogType]["amount"] += 1
+	var Destination = get_tree().get_nodes_in_group(str(frogType))
+	Destination[0].UpdateFrog(frogType)
 	calculateNextRandCoord()
 	startScienceTimer()
 

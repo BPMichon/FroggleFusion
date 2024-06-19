@@ -8,9 +8,8 @@ func _ready():
 	#populate menu with frog icons and their amounts
 	for frog in FrogGlobals.FROG_DATA:
 		instance = frogRowScene.instantiate()
-		print(FrogGlobals.FROG_DATA[frog]["imagePath"])
 		#the group is called the frog's name, which is sent a signal every time that frog spwans in
-		instance.add_to_group(frog)
+		instance.add_to_group(str(frog))
 		%VBoxContainer.add_child(instance)
 		#if locked
 			#image is a question mark

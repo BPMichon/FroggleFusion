@@ -2,12 +2,14 @@ extends Node
 
 var SCIENCE_COUNT = 0
 #I want to make an enumerated type of the different frogs to make it easier for us
-var FROG_DATA = {
-	"BlueGreenFrog": {
+enum FROG_TYPES {BlueGreenFrog, OtherFrog}
+
+var FROG_DATA = {	
+	FROG_TYPES.BlueGreenFrog: {
 					"amount": 0,
 					"imagePath": "res://art/greenBlueFrog.png",
 					"unlocked": true}, 
-	"OtherFrog": {
+	FROG_TYPES.OtherFrog: {
 					"amount": 30,
 					"imagePath": "res://Frog_1.png",
 					"unlocked": false}
