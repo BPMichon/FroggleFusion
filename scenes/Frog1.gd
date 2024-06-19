@@ -79,10 +79,12 @@ var clickTimer
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if MouseIn:
-			if not DRAGGING and event.pressed:
+			if not FrogGlobals.CURRENTLY_DRAGGING and not DRAGGING and event.pressed:
 				DRAGGING = true
+				FrogGlobals.CURRENTLY_DRAGGING = true
 		if DRAGGING and not event.pressed:
 			DRAGGING = false
+			FrogGlobals.CURRENTLY_DRAGGING = false
 	
 	
 	if event is InputEventMouseMotion and DRAGGING:

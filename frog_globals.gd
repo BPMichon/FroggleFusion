@@ -3,7 +3,7 @@ extends Node
 var SCIENCE_COUNT = 0
 #I want to make an enumerated type of the different frogs to make it easier for us
 enum FROG_TYPES {BlueGreenFrog, OtherFrog}
-
+var CURRENTLY_DRAGGING = false
 var FROG_DATA = {	
 	FROG_TYPES.BlueGreenFrog: {
 					"amount": 0,
