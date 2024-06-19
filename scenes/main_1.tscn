@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://n1k0hkq8x6jr"]
+[gd_scene load_steps=25 format=3 uid="uid://n1k0hkq8x6jr"]
 
 [ext_resource type="Script" path="res://scenes/main_1.gd" id="1_6gdq0"]
-[ext_resource type="Texture2D" uid="uid://oxn1134gx0a8" path="res://art/swampBackground.webp" id="1_gln6k"]
 [ext_resource type="Texture2D" uid="uid://i5wo1k6u3dgm" path="res://art/Grass.png" id="3_ibvyi"]
 [ext_resource type="PackedScene" uid="uid://b11s3kou7gfb" path="res://scenes/farm_stats_menu.tscn" id="3_kmdmg"]
 [ext_resource type="Texture2D" uid="uid://s5f8cpljynxe" path="res://art/Grass2.png" id="4_gajfy"]
@@ -11,6 +10,60 @@
 [ext_resource type="Texture2D" uid="uid://hlhwvcscxh44" path="res://art/TileArt2D/Texture/TX Tileset Stone Ground.png" id="6_kbrqr"]
 [ext_resource type="Texture2D" uid="uid://ce3ub3vqnfmxt" path="res://art/TileArt2D/Texture/TX Shadow.png" id="7_mg5bg"]
 [ext_resource type="Texture2D" uid="uid://dcbsdgiqmg7jp" path="res://art/TileArt2D/Texture/TX Plant.png" id="8_8pklq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxqq2"]
+atlas = ExtResource("5_ltc6u")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uya5o"]
+atlas = ExtResource("5_ltc6u")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u14si"]
+atlas = ExtResource("5_ltc6u")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtkhj"]
+atlas = ExtResource("5_ltc6u")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64hqm"]
+atlas = ExtResource("5_ltc6u")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p5agi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqq2")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uya5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u14si")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtkhj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64hqm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxqq2")
+}],
+"loop": false,
+"name": &"shine",
+"speed": 7.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jdmss"]
 texture = ExtResource("3_ibvyi")
@@ -930,75 +983,11 @@ sources/4 = SubResource("TileSetAtlasSource_t6e03")
 sources/5 = SubResource("TileSetAtlasSource_lkbc0")
 sources/7 = SubResource("TileSetAtlasSource_bo0k4")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wxqq2"]
-atlas = ExtResource("5_ltc6u")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uya5o"]
-atlas = ExtResource("5_ltc6u")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u14si"]
-atlas = ExtResource("5_ltc6u")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gtkhj"]
-atlas = ExtResource("5_ltc6u")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_64hqm"]
-atlas = ExtResource("5_ltc6u")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_p5agi"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqq2")
-}],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqq2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uya5o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u14si")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gtkhj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_64hqm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wxqq2")
-}],
-"loop": false,
-"name": &"shine",
-"speed": 7.0
-}]
-
 [node name="Main1" type="Node2D" groups=["MainNode"]]
 y_sort_enabled = true
 script = ExtResource("1_6gdq0")
 metadata/frog_count = true
 metadata/Science_Count = true
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -100
-visible = false
-
-[node name="Swamp" type="TextureRect" parent="Background"]
-y_sort_enabled = true
-offset_right = 1922.0
-offset_bottom = 1115.0
-texture = ExtResource("1_gln6k")
 
 [node name="UI" type="Control" parent="."]
 z_index = 100
@@ -1016,13 +1005,14 @@ offset_bottom = 1031.0
 theme_override_font_sizes/font_size = 100
 text = "Frog +1"
 
-[node name="ScienceCount" type="Label" parent="UI"]
+[node name="ScienceCount" type="Label" parent="UI" groups=["ScienceDestination"]]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 968.0
-offset_top = -16.0
+offset_top = -14.0
 offset_right = 1025.0
-offset_bottom = 121.0
+offset_bottom = 123.0
+pivot_offset = Vector2(32, 79)
 theme_override_font_sizes/font_size = 100
 text = "1
 "
@@ -1050,6 +1040,19 @@ offset_bottom = 2238.0
 grow_horizontal = 1
 grow_vertical = 1
 
+[node name="ScienceIcon" type="AnimatedSprite2D" parent="UI"]
+z_index = 100
+position = Vector2(902, 61)
+scale = Vector2(6, 5.6875)
+sprite_frames = SubResource("SpriteFrames_p5agi")
+animation = &"new_animation"
+autoplay = "new_animation"
+script = ExtResource("6_fgd1w")
+
+[node name="ScienceShineTimer" type="Timer" parent="UI/ScienceIcon"]
+wait_time = 5.0
+autostart = true
+
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 position = Vector2(-1397, -2554)
@@ -1062,22 +1065,6 @@ layer_1/name = "Plants"
 layer_1/y_sort_enabled = true
 layer_1/tile_data = PackedInt32Array(1900578, 65543, 0, 2097185, 65543, 0, 2228259, 65543, 0, 2424865, 65543, 0, 1703954, 65543, 0, 1966095, 65543, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["ScienceDestination"]]
-position = Vector2(1000, 48)
-
-[node name="ScienceIcon" type="AnimatedSprite2D" parent="."]
-z_index = 100
-position = Vector2(902, 61)
-scale = Vector2(6, 5.6875)
-sprite_frames = SubResource("SpriteFrames_p5agi")
-animation = &"new_animation"
-autoplay = "new_animation"
-script = ExtResource("6_fgd1w")
-
-[node name="ScienceShineTimer" type="Timer" parent="ScienceIcon"]
-wait_time = 5.0
-autostart = true
-
 [connection signal="pressed" from="UI/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="UI/FarmStatsButton" to="." method="_on_farm_stats_button_pressed"]
-[connection signal="timeout" from="ScienceIcon/ScienceShineTimer" to="ScienceIcon" method="_on_science_shine_timer_timeout"]
+[connection signal="timeout" from="UI/ScienceIcon/ScienceShineTimer" to="UI/ScienceIcon" method="_on_science_shine_timer_timeout"]
