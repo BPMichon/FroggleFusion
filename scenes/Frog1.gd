@@ -87,24 +87,34 @@ func _input(event):
 	
 	if event is InputEventMouseMotion and DRAGGING:
 		%AnimatedSprite2D.global_position = event.global_position
-	elif event is InputEventMouseButton and event.factor > 1 and DRAGGING:
-		if SCIENCE_READY:
-			var tween1 = get_tree().create_tween()
-			tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
-	
-			## Shit Tadpole 
-			spawn_science()
-	
-func _process(_delta):
-	#if left click and moving then dragging
-	#if MouseIn and Input.is_action_just_pressed("Click"): #and isnt dragging
+	#elif event is InputEventMouseButton and DRAGGING:
 		#if SCIENCE_READY:
 			#var tween1 = get_tree().create_tween()
 			#tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
-			#
+	#
 			### Shit Tadpole 
 			#spawn_science()
-	pass
+
+
+@onready var click_timer := $ClickTimer
+
+func _process(_delta):
+	#if left click and moving then dragging
+	if MouseIn and Input.is_action_just_pressed("Click"):
+		click_timer.start(0.2)
+		print("Clicked: ")
+	if MouseIn and Input.is_action_just_released("Click") and click_timer.get_time_left() > 0:
+		print("TimeLeft: " , click_timer.get_time_left()) #and isnt dragging
+		#DRAGGING = false
+		if SCIENCE_READY:
+			var tween1 = get_tree().create_tween()
+			tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
+			
+			## Shit Tadpole 
+			spawn_science()
+		#else:
+			#DRAGGING = true
+		pass
 	#if left click and dragging then move sprite
 	#if release and dragging then release sprite and set not dragging
 
