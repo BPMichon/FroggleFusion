@@ -182,12 +182,12 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8w3ug"]
-radius = 13.0018
+[sub_resource type="CircleShape2D" id="CircleShape2D_eit3p"]
 
 [node name="FrogObject" type="Sprite2D" groups=["Frog"]]
-position = Vector2(851, 614)
+position = Vector2(865, 653)
 scale = Vector2(4.8503, 5.17935)
+offset = Vector2(-2.88641, -7.52991)
 script = ExtResource("2_kv5us")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -205,17 +205,18 @@ animation = &"hop"
 autoplay = "Idle"
 frame_progress = 0.18947
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(22.8852, 4.82686)
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+position = Vector2(-21.2358, -0.772285)
+scale = Vector2(1, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.618525, -4.24764)
-shape = SubResource("CircleShape2D_8w3ug")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(19.1741, 0.772295)
+shape = SubResource("CircleShape2D_eit3p")
 
 [node name="ScienceTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="mouse_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="ScienceTimer" to="." method="_on_science_timer_timeout"]

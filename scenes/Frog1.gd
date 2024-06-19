@@ -72,16 +72,41 @@ func frogRandomMove():
 	
 	calculateNextRandCoord()
 
+var DRAGGING = false
+var CLICK_RADIUS = 32
+var clickTimer
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-
-func _process(_delta):
-	if MouseIn and Input.is_action_just_pressed("Click"):
+func _input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if MouseIn:
+			if not DRAGGING and event.pressed:
+				DRAGGING = true
+		if DRAGGING and not event.pressed:
+			DRAGGING = false
+	
+	
+	if event is InputEventMouseMotion and DRAGGING:
+		%AnimatedSprite2D.global_position = event.global_position
+	elif event is InputEventMouseButton and event.factor > 1 and DRAGGING:
 		if SCIENCE_READY:
 			var tween1 = get_tree().create_tween()
 			tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
-			
+	
 			## Shit Tadpole 
 			spawn_science()
+	
+func _process(_delta):
+	#if left click and moving then dragging
+	#if MouseIn and Input.is_action_just_pressed("Click"): #and isnt dragging
+		#if SCIENCE_READY:
+			#var tween1 = get_tree().create_tween()
+			#tween1.tween_property(%AnimatedSprite2D, "modulate:v", 1, 0.25).from(15)
+			#
+			### Shit Tadpole 
+			#spawn_science()
+	pass
+	#if left click and dragging then move sprite
+	#if release and dragging then release sprite and set not dragging
 
 
 func _on_animated_sprite_2d_frame_changed():
