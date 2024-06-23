@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cb7fbrlenwajh"]
+
+[ext_resource type="Script" path="res://scenes/collision_component.gd" id="1_4cntv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kocq1"]
+
+[node name="CollisionComponent" type="Area2D"]
+script = ExtResource("1_4cntv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kocq1")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

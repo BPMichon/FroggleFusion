@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl0tdhfflep4x"]
+
+[ext_resource type="Script" path="res://scenes/science_spawn.gd" id="1_rnexi"]
+
+[node name="EggSpawnComponent" type="Timer"]
+script = ExtResource("1_rnexi")

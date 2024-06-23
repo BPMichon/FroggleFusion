@@ -1,6 +1,6 @@
 extends Sprite2D
 @export_category("STATS")
-@export var Health : int = 10#
+@export var Health : int = 10
 #Scenes Preloads 
 @export var frogScienceScene: PackedScene = preload("res://scenes/frog_egg.tscn")
 
