@@ -1,9 +1,10 @@
 extends Timer
+class_name ScienceComponent
 
 @export var frogScienceScene: PackedScene = preload("res://scenes/frog_egg.tscn")
 
-var ScienceTimer = 1
-var SCIENCE_READY = false
+var ScienceTimer = 0
+@export var SCIENCE_READY = false
 # Creates a New Preloaded Object
 func Spawn(position):
 	var instance = frogScienceScene.instantiate() 

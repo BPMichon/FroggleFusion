@@ -1,9 +1,12 @@
 extends Area2D
 
+class_name CollisionComponent
 @export var MOUSE_IN = false
 
 func _on_mouse_entered():
-	MOUSE_IN = false
+	print("In")
+	MOUSE_IN = true
 
 func _on_mouse_exited():
-	MOUSE_IN = true
+	print("Out")
+	MOUSE_IN = false

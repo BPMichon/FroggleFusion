@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FrogData" load_steps=3 format=3 uid="uid://dox4mv0tpnceh"]
+
+[ext_resource type="Script" path="res://frog_data.gd" id="1_45diy"]
+[ext_resource type="SpriteFrames" uid="uid://cjh2ais88m1ld" path="res://scenes/GreenBlueSpriteFrames.tres" id="2_8mri8"]
+
+[resource]
+script = ExtResource("1_45diy")
+health = 20
+unlocked = true
+spriteFrame = ExtResource("2_8mri8")
+imagePath = ""

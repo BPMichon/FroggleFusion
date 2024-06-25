@@ -11,7 +11,10 @@ func Suicide():
 	queue_free()
 	FrogGlobals.SCIENCE_COUNT += 1
 	var Destination = get_tree().get_nodes_in_group("MainNode")
-	Destination[0].onScienceHit()
+	if Destination.is_empty():
+		pass
+	else:
+		Destination[0].onScienceHit()
 	
 ## Egg travels Backwards before going to final destination
 
@@ -26,10 +29,14 @@ func CalculateBackwardsPosition(Initial, Final):
 func _ready():
 	#get the science counter coords, which the eggs are going to fire at
 	var Destination = get_tree().get_nodes_in_group("ScienceDestination")
-	var pos = Destination[0].get_global_position()
-	var size = Destination[0].get_size()
-	#position gets the top left coord of the science counter. This gets the centre of the counter
-	NEW_POSITION = Vector2(pos.x + 0.5*(size.x), pos.y + 0.5*(size.y) )
+	#If Target NBot Present Flies to Origin
+	if Destination.is_empty():
+		NEW_POSITION = Vector2(0,0)
+	else:
+		var pos = Destination[0].get_global_position()
+		var size = Destination[0].get_size()
+		#position gets the top left coord of the science counter. This gets the centre of the counter
+		NEW_POSITION = Vector2(pos.x + 0.5*(size.x), pos.y + 0.5*(size.y) )
 	Suicide()
 	
 

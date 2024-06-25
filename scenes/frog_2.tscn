@@ -1,13 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://6t0anypq87r6"]
+[gd_scene load_steps=6 format=3 uid="uid://6t0anypq87r6"]
 
 [ext_resource type="SpriteFrames" uid="uid://cjh2ais88m1ld" path="res://scenes/GreenBlueSpriteFrames.tres" id="1_dp4js"]
 [ext_resource type="Script" path="res://Frog_2.gd" id="1_jowgc"]
 [ext_resource type="PackedScene" uid="uid://cb7fbrlenwajh" path="res://scenes/collision_component.tscn" id="2_gy4mu"]
 [ext_resource type="PackedScene" uid="uid://bl0tdhfflep4x" path="res://scenes/egg_spawn_component.tscn" id="3_xdab8"]
+[ext_resource type="Script" path="res://scenes/MovementComponent.gd" id="5_kgnn5"]
 
 [node name="Frog_2" type="AnimatedSprite2D"]
-position = Vector2(1031, 504)
-scale = Vector2(7.3125, 7.58333)
+position = Vector2(1145, 598)
+scale = Vector2(4.36458, 4.64583)
 sprite_frames = ExtResource("1_dp4js")
 animation = &"Idle"
 autoplay = "Idle"
@@ -18,8 +19,14 @@ unique_name_in_owner = true
 
 [node name="ClickTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="ScienceSpawn" parent="." instance=ExtResource("3_xdab8")]
 unique_name_in_owner = true
+one_shot = true
+
+[node name="MovementComponent" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_kgnn5")
 
 [connection signal="frame_changed" from="." to="." method="_on_frame_changed"]

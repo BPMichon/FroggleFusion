@@ -4,3 +4,5 @@
 
 [node name="EggSpawnComponent" type="Timer"]
 script = ExtResource("1_rnexi")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]

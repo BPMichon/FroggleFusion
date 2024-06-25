@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://rhmjy76uuq1x"]
+
+[ext_resource type="PackedScene" uid="uid://6t0anypq87r6" path="res://scenes/frog_2.tscn" id="1_rr3xq"]
+[ext_resource type="Script" path="res://Frog_2_Child.gd" id="2_422wk"]
+
+[node name="Frog_2_Child" instance=ExtResource("1_rr3xq")]
+script = ExtResource("2_422wk")

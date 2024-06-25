@@ -1,8 +1,8 @@
 extends Node2D
 
-var frog_count = 0
+#var frog_count = 0
 
-@export var frogScene: PackedScene = preload("res://scenes/frog_1.tscn")
+@export var frogScene: PackedScene = preload("res://scenes/BlueGreenFrog.tscn")
 var rng = RandomNumberGenerator.new()
 
 #var farmStatsScene: PackedScene = preload("res://scenes/farm_stats_menu.tscn")

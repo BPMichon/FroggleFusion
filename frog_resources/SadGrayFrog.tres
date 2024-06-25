@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FrogData" load_steps=2 format=3 uid="uid://bp1bttfenmke1"]
+
+[ext_resource type="Script" path="res://frog_data.gd" id="1_v153n"]
+
+[resource]
+script = ExtResource("1_v153n")
+health = 0
+unlocked = false
+imagePath = ""
